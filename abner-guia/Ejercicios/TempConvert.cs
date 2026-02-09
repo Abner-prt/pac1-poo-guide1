@@ -106,14 +106,13 @@ namespace poo_guia_1_abnerP.Ejercicios
         // valida un valor que no sea nulo para la tem´p
         public static double ObtenerTemperatura(string mensaje)
         {
-            double temperatura;
+            double temperatura = 0;
             bool entradaValida = false;
 
             do
             {
                 Console.Write(mensaje);
-                string entrada = Console.ReadLine();
-
+                string entrada = Console.ReadLine() ?? "";
                 entradaValida = double.TryParse(entrada, out temperatura);
 
                 if (!entradaValida)
@@ -123,6 +122,32 @@ namespace poo_guia_1_abnerP.Ejercicios
             } while (!entradaValida);
 
             return temperatura;
+        }
+
+        public static int ObtenerOpcion()
+        {
+            int opcion = 0;
+            bool opcionValida = false;
+
+            do
+            {
+                string entrada = Console.ReadLine() ?? "";
+                opcionValida = int.TryParse(entrada, out opcion);
+
+                if (!opcionValida)
+                {
+                    Console.WriteLine("\n Por favor ingrese un número del 0 al 6.");
+                    Console.Write("  Ingrese su opción: ");
+                }
+            } while (!opcionValida);
+
+            return opcion;
+        }
+
+        public static void Continuar()
+        {
+            Console.WriteLine("\n  Presione Enter para continuar...");
+            Console.ReadLine();
         }
 
         
@@ -136,14 +161,7 @@ namespace poo_guia_1_abnerP.Ejercicios
                 MostrarMenu();
                 
                 // lee la opcion q eligio el user
-                string entrada = Console.ReadLine();
-                bool opcionValida = int.TryParse(entrada, out opcion);
-
-                if (!opcionValida)
-                {
-                    Console.WriteLine("\n Por favor ingrese un número del 0 al 6.");
-                    continue;
-                }
+                opcion = ObtenerOpcion();
 
                 switch (opcion)
                 {
@@ -156,42 +174,42 @@ namespace poo_guia_1_abnerP.Ejercicios
                         double celsius = ObtenerTemperatura("  Ingrese la temperatura en Celsius: ");
                         Temperatura tempC = new Temperatura(celsius, "°C");
                         double fahrenheit = CelsiusAFahrenheit(celsius);
-                        Console.WriteLine($"\n  Resultado: {tempC.GetValor()} °C = {fahrenheit:F2} °F");
+                        Console.WriteLine("\n  Resultado: " + tempC.GetValor() + " °C = " + fahrenheit + " °F");
                         break;
 
                     case 2:
                         double fahrInput = ObtenerTemperatura("  Ingrese la temperatura en Fahrenheit: ");
                         Temperatura tempF = new Temperatura(fahrInput, "°F");
                         double celsiusResult = FahrenheitACelsius(fahrInput);
-                        Console.WriteLine($"\n  Resultado: {tempF.GetValor()} °F = {celsiusResult:F2} °C");
+                        Console.WriteLine("\n  Resultado: " + tempF.GetValor() + " °F = " + celsiusResult + " °C");
                         break;
 
                     case 3:
                         double celsiusKelvin = ObtenerTemperatura("  Ingrese la temperatura en Celsius: ");
                         Temperatura tempCK = new Temperatura(celsiusKelvin, "°C");
                         double kelvin = CelsiusAKelvin(celsiusKelvin);
-                        Console.WriteLine($"\n  Resultado: {tempCK.GetValor()} °C = {kelvin:F2} K");
+                        Console.WriteLine("\n  Resultado: " + tempCK.GetValor() + " °C = " + kelvin + " K");
                         break;
 
                     case 4:
                         double kelvinInput = ObtenerTemperatura("  Ingrese la temperatura en Kelvin: ");
                         Temperatura tempK = new Temperatura(kelvinInput, "K");
                         double celsiusFromKelvin = KelvinACelsius(kelvinInput);
-                        Console.WriteLine($"\n  Resultado: {tempK.GetValor()} K = {celsiusFromKelvin:F2} °C");
+                        Console.WriteLine("\n  Resultado: " + tempK.GetValor() + " K = " + celsiusFromKelvin + " °C");
                         break;
 
                     case 5:
                         double fahrToKelvin = ObtenerTemperatura("  Ingrese la temperatura en Fahrenheit: ");
                         Temperatura tempFK = new Temperatura(fahrToKelvin, "°F");
                         double kelvinFromFahr = FahrenheitAKelvin(fahrToKelvin);
-                        Console.WriteLine($"\n  Resultado: {tempFK.GetValor()} °F = {kelvinFromFahr:F2} K");
+                        Console.WriteLine("\n  Resultado: " + tempFK.GetValor() + " °F = " + kelvinFromFahr + " K");
                         break;
 
                     case 6:
                         double kelvinToFahr = ObtenerTemperatura("  Ingrese la temperatura en Kelvin: ");
                         Temperatura tempKF = new Temperatura(kelvinToFahr, "K");
                         double fahrenheitFromKelvin = KelvinAFahrenheit(kelvinToFahr);
-                        Console.WriteLine($"\n  Resultado: {tempKF.GetValor()} K = {fahrenheitFromKelvin:F2} °F");
+                        Console.WriteLine("\n  Resultado: " + tempKF.GetValor() + " K = " + fahrenheitFromKelvin + " °F");
                         break;
 
                     default:
@@ -202,8 +220,7 @@ namespace poo_guia_1_abnerP.Ejercicios
                 // pausa antes de volver a mostratr el menu
                 if (continuar)
                 {
-                    Console.WriteLine("\n  Presione Enter para continuar...");
-                    Console.ReadLine();
+                    Continuar();
                 }
             }
         }

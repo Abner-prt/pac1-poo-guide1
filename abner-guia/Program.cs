@@ -5,6 +5,21 @@ namespace poo_guia_1_abnerP
 {
     class Program
     {
+        static int ObtenerEntero(string mensaje)
+        {
+            int resultado = 0;
+            bool valido = false;
+
+            do
+            {
+                Console.Write(mensaje);
+                string entrada = Console.ReadLine() ?? "";
+                valido = int.TryParse(entrada, out resultado);
+            } while (!valido);
+
+            return resultado;
+        }
+
         static void Main(string[] args)
         {
             int opcion;
@@ -13,17 +28,11 @@ namespace poo_guia_1_abnerP
                 Console.WriteLine("      MENU PRINCIPAL      ");
                 Console.WriteLine("  1. Calculadora IMC");
                 Console.WriteLine("  2. Convertidor de Temperatura");
+                Console.WriteLine("  3. Desglose de Billetes");
                 Console.WriteLine("  0. Salir");
                 Console.Write("  Ingrese su opción: ");
 
-                string entrada = Console.ReadLine();
-                bool opcionValida = int.TryParse(entrada, out opcion);
-
-                if (!opcionValida)
-                {
-                    Console.WriteLine("\n  Por favor ingrese un número válido (0-2).\n");
-                    continue;
-                }
+                opcion = ObtenerEntero("");
 
                 switch (opcion)
                 {
@@ -39,8 +48,13 @@ namespace poo_guia_1_abnerP
                         Console.WriteLine("\n  --- CONVERTIDOR DE TEMPERATURA ---");
                         TempConvert.Ejecutar();
                         break;
+                    case 3:
+                        Console.WriteLine("\n  --- DESGLOSE DE BILLETES ---");
+                        int monto = ObtenerEntero("  Ingrese el monto en lempiras: ");
+                        BillsDesglose.DesglosarBilletes(monto);
+                        break;
                     default:
-                        Console.WriteLine("\n  Opción no válida. Ingrese un número del 0 al 2.\n");
+                        Console.WriteLine("\n  Opción no válida. Ingrese un número del 0 al 3.\n");
                         break;
                 }
 
@@ -54,3 +68,4 @@ namespace poo_guia_1_abnerP
         }
     }
 }
+ //AGREGAR NUEVAS OPCIONES DESPS
