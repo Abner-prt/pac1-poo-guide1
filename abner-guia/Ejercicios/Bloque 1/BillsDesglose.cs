@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace poo_guia_1_abnerP.Ejercicios
+namespace poo_guia_1_abnerP.Ejercicios.Bloque1
 {
     public class BillsDesglose
     {
-        public static void DesglosarBilletes(int monto)
+        public void DesglosarBilletes(int monto)
         {
             // areglo con las denominaciones de billetes disponibles de M a m
             int[] denominationes = { 500, 100, 50, 20, 10, 5, 2, 1 };

@@ -1,6 +1,6 @@
 using System;
 
-namespace poo_guia_1_abnerP.Ejercicios
+namespace poo_guia_1_abnerP.Ejercicios.Bloque1
 {
     public class CalculadoraIMC
     {

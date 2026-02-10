@@ -1,6 +1,6 @@
 using System;
 
-namespace poo_guia_1_abnerP.Ejercicios
+namespace poo_guia_1_abnerP.Ejercicios.Bloque1
 {
     /// temp unit class
     public class Temperatura
@@ -47,50 +47,50 @@ namespace poo_guia_1_abnerP.Ejercicios
     public class TempConvert
     {
         // constantes de las formulas
-        private const double CELSIUS_A_FAHRENHEIT = 1.8;
-        private const double CELSIUS_A_KELVIN = 273.15;
-        private const double DIFERENCIA_FAHRENHEIT = 32;
+        public const double CELSIUS_A_FAHRENHEIT = 1.8;
+        public const double CELSIUS_A_KELVIN = 273.15;
+        public const double DIFERENCIA_FAHRENHEIT = 32;
 
         /// C a f
-        public static double CelsiusAFahrenheit(double celsius)
+        public double CelsiusAFahrenheit(double celsius)
         {
             return (celsius * CELSIUS_A_FAHRENHEIT) + DIFERENCIA_FAHRENHEIT;
         }
 
   // f a C
-        public static double FahrenheitACelsius(double fahrenheit)
+        public double FahrenheitACelsius(double fahrenheit)
         {
             return (fahrenheit - DIFERENCIA_FAHRENHEIT) / CELSIUS_A_FAHRENHEIT;
         }
 
         // C a k
-        public static double CelsiusAKelvin(double celsius)
+        public double CelsiusAKelvin(double celsius)
         {
             return celsius + CELSIUS_A_KELVIN;
         }
 
         // k a C
-        public static double KelvinACelsius(double kelvin)
+        public double KelvinACelsius(double kelvin)
         {
             return kelvin - CELSIUS_A_KELVIN;
         }
 
         // f a k
-        public static double FahrenheitAKelvin(double fahrenheit)
+        public double FahrenheitAKelvin(double fahrenheit)
         {
             double celsius = FahrenheitACelsius(fahrenheit);
             return CelsiusAKelvin(celsius);
         }
 
         // k a f
-        public static double KelvinAFahrenheit(double kelvin)
+        public double KelvinAFahrenheit(double kelvin)
         {
             double celsius = KelvinACelsius(kelvin);
             return CelsiusAFahrenheit(celsius);
         }
 
         // mini menu
-        public static void MostrarMenu()
+        public void MostrarMenu()
         {
             Console.WriteLine("      CONVERTIDOR DE TEMPERATURA      ");
             Console.WriteLine("  1. Celsius    -> Fahrenheit");
@@ -104,7 +104,7 @@ namespace poo_guia_1_abnerP.Ejercicios
         }
 
         // valida un valor que no sea nulo para la tem´p
-        public static double ObtenerTemperatura(string mensaje)
+        public double ObtenerTemperatura(string mensaje)
         {
             double temperatura = 0;
             bool entradaValida = false;
@@ -112,46 +112,54 @@ namespace poo_guia_1_abnerP.Ejercicios
             do
             {
                 Console.Write(mensaje);
-                string entrada = Console.ReadLine() ?? "";
-                entradaValida = double.TryParse(entrada, out temperatura);
-
-                if (!entradaValida)
+                string entrada = Console.ReadLine();
+                try
+                {
+                    temperatura = double.Parse(entrada);
+                    entradaValida = true;
+                }
+                catch
                 {
                     Console.WriteLine("Por favor ingrese un número válido.");
+                    entradaValida = false;
                 }
             } while (!entradaValida);
 
             return temperatura;
         }
 
-        public static int ObtenerOpcion()
+        public int ObtenerOpcion()
         {
             int opcion = 0;
             bool opcionValida = false;
 
             do
             {
-                string entrada = Console.ReadLine() ?? "";
-                opcionValida = int.TryParse(entrada, out opcion);
-
-                if (!opcionValida)
+                string entrada = Console.ReadLine();
+                try
+                {
+                    opcion = int.Parse(entrada);
+                    opcionValida = true;
+                }
+                catch
                 {
                     Console.WriteLine("\n Por favor ingrese un número del 0 al 6.");
                     Console.Write("  Ingrese su opción: ");
+                    opcionValida = false;
                 }
             } while (!opcionValida);
 
             return opcion;
         }
 
-        public static void Continuar()
+        public void Continuar()
         {
             Console.WriteLine("\n  Presione Enter para continuar...");
             Console.ReadLine();
         }
 
         
-        public static void Ejecutar()
+        public void Ejecutar()
         {
             int opcion;
             bool continuar = true;
