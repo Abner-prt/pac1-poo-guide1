@@ -85,9 +85,9 @@ namespace poo_guia_1_abnerP.Ejercicios.Bloque2
         public void MostrarResultado()
         {
             Console.WriteLine("\n RESULTADO ");
-            Console.WriteLine("Monto original: L ");    //NO es necesario el field
-            Console.WriteLine("Descuento: L");
-            Console.WriteLine("Precio final: L ");
+            Console.WriteLine("Monto original: L " + montoCompra);
+            Console.WriteLine("Descuento: L " + descuento);
+            Console.WriteLine("Precio final: L " + precioFinal);
         }
     }
 }

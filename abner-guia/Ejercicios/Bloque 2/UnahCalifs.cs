@@ -44,7 +44,7 @@ namespace poo_guia_1_abnerP.Ejercicios.Bloque2
             // Mostrar resultados al usuario
             MostrarResultado();
         }
-
+        // serie de else ifs para determ la letra segun calificacion
         public void DeterminarLetra()
         {
             if (calificacion >= 90 && calificacion <= 100)
@@ -77,18 +77,18 @@ namespace poo_guia_1_abnerP.Ejercicios.Bloque2
             }
         }
 
-        private void DeterminarEstado()
+        public void DeterminarEstado()
         {
             estado = (calificacion >= 60) ? "APROBADO" : "REPROBADO";
         }
 
-        private void MostrarResultado()
+        public void MostrarResultado()
         {
             Console.WriteLine("\n RESULTADO ");
-            Console.WriteLine("Calificacion: ");
-            Console.WriteLine("Letra: ");
-            Console.WriteLine("Descripcion: ");
-            Console.WriteLine("Estado: ");
+            Console.WriteLine("Calificacion: " + calificacion);
+            Console.WriteLine("Letra: " + letra);
+            Console.WriteLine("Descripcion: " + descripcion);
+            Console.WriteLine("Estado: " + estado);
         }
     }
 }

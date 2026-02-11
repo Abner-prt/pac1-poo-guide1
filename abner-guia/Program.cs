@@ -1,6 +1,7 @@
 ﻿using System;
 using poo_guia_1_abnerP.Ejercicios.Bloque1;
 using poo_guia_1_abnerP.Ejercicios.Bloque2;
+using poo_guia_1_abnerP.Ejercicios.Bloque3;
 
 namespace poo_guia_1_abnerP
 {
@@ -14,7 +15,7 @@ namespace poo_guia_1_abnerP
             do
             {
                 Console.Write(mensaje);
-                string entrada = Console.ReadLine() ?? "";
+                string entrada = Console.ReadLine();
                 try
                 {
                     resultado = int.Parse(entrada);
@@ -35,6 +36,7 @@ namespace poo_guia_1_abnerP
             Console.WriteLine("      MENU PRINCIPAL      ");
             Console.WriteLine("  1. Bloque 1");
             Console.WriteLine("  2. Bloque 2");
+            Console.WriteLine("  3. Bloque 3");
             Console.WriteLine("  0. Salir");
             Console.Write("  Ingrese su opción: ");
         }
@@ -60,6 +62,17 @@ namespace poo_guia_1_abnerP
             Console.WriteLine("  1. Clasificacion de Triangulo");
             Console.WriteLine("  2. Sistema de Calificaciones UNAH");
             Console.WriteLine("  3. Calculadora de Descuentos");
+            Console.WriteLine("  4. Año Bisiesto y Dias del Mes");
+            Console.WriteLine("  5. Validador de Fechas");
+            Console.WriteLine("  6. Cajero Automatico");
+            Console.WriteLine("  0. Volver al menu principal");
+            Console.Write("  Ingrese su opción: ");
+        }
+
+        void MostrarMenuBloque3()
+        {
+            Console.WriteLine("\n      BLOQUE 3      ");
+            Console.WriteLine("  1. Tabla de Multiplicar Extendida");
             Console.WriteLine("  0. Volver al menu principal");
             Console.Write("  Ingrese su opción: ");
         }
@@ -75,7 +88,7 @@ namespace poo_guia_1_abnerP
 
                 try
                 {
-                    opcion = int.Parse(Console.ReadLine() ?? "");
+                    opcion = int.Parse(Console.ReadLine());
                 }
                 catch
                 {
@@ -153,7 +166,7 @@ namespace poo_guia_1_abnerP
 
                 try
                 {
-                    opcion = int.Parse(Console.ReadLine() ?? "");
+                    opcion = int.Parse(Console.ReadLine());
                 }
                 catch
                 {
@@ -181,12 +194,69 @@ namespace poo_guia_1_abnerP
                         CalcuDesc descuento = new CalcuDesc();
                         descuento.Ejecutar();
                         break;
+                    case 4:
+                        Console.WriteLine("\n  --- AÑO BISIESTO Y DIAS DEL MES ---");
+                        AñoBisYDMes añoBis = new AñoBisYDMes();
+                        añoBis.Ejecutar();
+                        break;
+                    case 5:
+                        Console.WriteLine("\n  --- VALIDADOR DE FECHAS ---");
+                        ValidFechas fecha = new ValidFechas();
+                        fecha.Ejecutar();
+                        break;
+                    case 6:
+                        Console.WriteLine("\n  --- CAJERO AUTOMATICO ---");
+                        CajeroAut cajero = new CajeroAut();
+                        cajero.Ejecutar();
+                        break;
                     default:
-                        Console.WriteLine("\n  Opción no válida. Ingrese un número del 0 al 3.\n");
+                        Console.WriteLine("\n  Opción no válida. Ingrese un número del 0 al 6.\n");
                         break;
                 }
 
-                if (continuar && opcion >= 1 && opcion <= 3)
+                if (continuar && opcion >= 1 && opcion <= 6)
+                {
+                    Console.WriteLine("\n  Presione Enter para continuar...");
+                    Console.ReadLine();
+                }
+            }
+        }
+
+        void EjecutarBloque3()
+        {
+            int opcion;
+            bool continuar = true;
+
+            while (continuar)
+            {
+                MostrarMenuBloque3();
+
+                try
+                {
+                    opcion = int.Parse(Console.ReadLine());
+                }
+                catch
+                {
+                    opcion = -1;
+                }
+
+                switch (opcion)
+                {
+                    case 0:
+                        Console.WriteLine("\n  Volviendo al menu principal...");
+                        continuar = false;
+                        break;
+                    case 1:
+                        Console.WriteLine("\n  --- TABLA DE MULTIPLICAR EXTENDIDA ---");
+                        TablaMultExt tabla = new TablaMultExt();
+                        tabla.Ejecutar();
+                        break;
+                    default:
+                        Console.WriteLine("\n  Opción no válida. Ingrese un número del 0 al 1.\n");
+                        break;
+                }
+
+                if (continuar && opcion == 1)
                 {
                     Console.WriteLine("\n  Presione Enter para continuar...");
                     Console.ReadLine();
@@ -212,11 +282,14 @@ namespace poo_guia_1_abnerP
                     case 2:
                         programa.EjecutarBloque2();
                         break;
+                    case 3:
+                        programa.EjecutarBloque3();
+                        break;
                     case 0:
                         Console.WriteLine("\n  Programa terminado.");
                         break;
                     default:
-                        Console.WriteLine("\n  Opción no válida. Ingrese un número del 0 al 2.\n");
+                        Console.WriteLine("\n  Opción no válida. Ingrese un número del 0 al 3.\n");
                         break;
                 }
 
