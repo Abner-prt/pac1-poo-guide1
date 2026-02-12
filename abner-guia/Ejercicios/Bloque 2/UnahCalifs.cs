@@ -21,7 +21,7 @@ namespace poo_guia_1_abnerP.Ejercicios.Bloque2
 
             // Validar que sea un número válido usando TryParse
             // TryParse evita excepciones si la entrada no es numérica
-            while (!double.TryParse(Console.ReadLine(), out calificacion))
+            while (double.TryParse(Console.ReadLine(), out calificacion))
             {
                 Console.Write("Debe ingresar un número válido. Ingrese la calificacion: ");
             }

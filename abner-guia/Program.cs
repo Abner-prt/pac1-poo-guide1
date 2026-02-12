@@ -73,6 +73,11 @@ namespace poo_guia_1_abnerP
         {
             Console.WriteLine("\n      BLOQUE 3      ");
             Console.WriteLine("  1. Tabla de Multiplicar Extendida");
+            Console.WriteLine("  2. Numeros Primos en Rango");
+            Console.WriteLine("  3. Serie de Fibonacci");
+            Console.WriteLine("  4. Factorial y Combinaciones");
+            Console.WriteLine("  5. Juego de Adivinanza");
+            Console.WriteLine("  6. Validacion de Contrasena");
             Console.WriteLine("  0. Volver al menu principal");
             Console.Write("  Ingrese su opción: ");
         }
@@ -251,12 +256,37 @@ namespace poo_guia_1_abnerP
                         TablaMultExt tabla = new TablaMultExt();
                         tabla.Ejecutar();
                         break;
+                    case 2:
+                        Console.WriteLine("\n  --- NUMEROS PRIMOS EN RANGO ---");
+                        NumsPrimsRang primos = new NumsPrimsRang();
+                        primos.Ejecutar();
+                        break;
+                    case 3:
+                        Console.WriteLine("\n  --- SERIE DE FIBONACCI ---");
+                        SerieFibo fibo = new SerieFibo();
+                        fibo.Ejecutar();
+                        break;
+                    case 4:
+                        Console.WriteLine("\n  --- FACTORIAL Y COMBINACIONES ---");
+                        FactoCombi facto = new FactoCombi();
+                        facto.Ejecutar();
+                        break;
+                    case 5:
+                        Console.WriteLine("\n  --- JUEGO DE ADIVINANZA ---");
+                        AdiviGame adivina = new AdiviGame();
+                        adivina.Ejecutar();
+                        break;
+                    case 6:
+                        Console.WriteLine("\n  --- VALIDACION DE CONTRASENA ---");
+                        PasswordVali password = new PasswordVali();
+                        password.Ejecutar();
+                        break;
                     default:
-                        Console.WriteLine("\n  Opción no válida. Ingrese un número del 0 al 1.\n");
+                        Console.WriteLine("\n  Opción no válida. Ingrese un número del 0 al 6.\n");
                         break;
                 }
 
-                if (continuar && opcion == 1)
+                if (continuar && opcion >= 1 && opcion <= 6)
                 {
                     Console.WriteLine("\n  Presione Enter para continuar...");
                     Console.ReadLine();
