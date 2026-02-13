@@ -2,6 +2,7 @@
 using poo_guia_1_abnerP.Ejercicios.Bloque1;
 using poo_guia_1_abnerP.Ejercicios.Bloque2;
 using poo_guia_1_abnerP.Ejercicios.Bloque3;
+using poo_guia_1_abnerP.Ejercicios.Bloque4;
 
 namespace poo_guia_1_abnerP
 {
@@ -37,6 +38,7 @@ namespace poo_guia_1_abnerP
             Console.WriteLine("  1. Bloque 1");
             Console.WriteLine("  2. Bloque 2");
             Console.WriteLine("  3. Bloque 3");
+            Console.WriteLine("  4. Bloque 4");
             Console.WriteLine("  0. Salir");
             Console.Write("  Ingrese su opción: ");
         }
@@ -78,6 +80,19 @@ namespace poo_guia_1_abnerP
             Console.WriteLine("  4. Factorial y Combinaciones");
             Console.WriteLine("  5. Juego de Adivinanza");
             Console.WriteLine("  6. Validacion de Contrasena");
+            Console.WriteLine("  7. Calculadora con Menu");
+            Console.WriteLine("  0. Volver al menu principal");
+            Console.Write("  Ingrese su opción: ");
+        }
+
+        void MostrarMenuBloque4()
+        {
+            Console.WriteLine("\n      BLOQUE 4      ");
+            Console.WriteLine("  1. Estadisticas de Calificaciones");
+            Console.WriteLine("  2. Busqueda y Ordenamiento");
+            Console.WriteLine("  3. Rotacion de Arreglo");
+            Console.WriteLine("  4. Frecuencia de Elementos");
+            Console.WriteLine("  5. Arreglo de Temperaturas");
             Console.WriteLine("  0. Volver al menu principal");
             Console.Write("  Ingrese su opción: ");
         }
@@ -281,12 +296,79 @@ namespace poo_guia_1_abnerP
                         PasswordVali password = new PasswordVali();
                         password.Ejecutar();
                         break;
+                    case 7:
+                        Console.WriteLine("\n  --- CALCULADORA CON MENU ---");
+                        MenuCalcu calcu = new MenuCalcu();
+                        calcu.Ejecutar();
+                        break;
                     default:
-                        Console.WriteLine("\n  Opción no válida. Ingrese un número del 0 al 6.\n");
+                        Console.WriteLine("\n  Opción no válida. Ingrese un número del 0 al 7.\n");
                         break;
                 }
 
-                if (continuar && opcion >= 1 && opcion <= 6)
+                if (continuar && opcion >= 1 && opcion <= 7)
+                {
+                    Console.WriteLine("\n  Presione Enter para continuar...");
+                    Console.ReadLine();
+                }
+            }
+        }
+
+        void EjecutarBloque4()
+        {
+            int opcion;
+            bool continuar = true;
+
+            while (continuar)
+            {
+                MostrarMenuBloque4();
+
+                try
+                {
+                    opcion = int.Parse(Console.ReadLine());
+                }
+                catch
+                {
+                    opcion = -1;
+                }
+
+                switch (opcion)
+                {
+                    case 0:
+                        Console.WriteLine("\n  Volviendo al menu principal...");
+                        continuar = false;
+                        break;
+                    case 1:
+                        Console.WriteLine("\n  --- ESTADISTICAS DE CALIFICACIONES ---");
+                        EstadisticaCalif estadisticas = new EstadisticaCalif();
+                        estadisticas.Ejecutar();
+                        break;
+                    case 2:
+                        Console.WriteLine("\n  --- BUSQUEDA Y ORDENAMIENTO ---");
+                        BusquedaOrdenam busqueda = new BusquedaOrdenam();
+                        busqueda.Ejecutar();
+                        break;
+                    case 3:
+                        Console.WriteLine("\n  --- ROTACION DE ARREGLO ---");
+                        ArrayRotation rotacion = new ArrayRotation();
+                        rotacion.Ejecutar();
+                        break;
+                    case 4:
+                        Console.WriteLine("\n  --- FRECUENCIA DE ELEMENTOS ---");
+                        FreqElemen frecuencia = new FreqElemen();
+                        frecuencia.Ejecutar();
+                        break;
+                    case 5:
+                        Console.WriteLine("\n  --- ARREGLO DE TEMPERATURAS ---");
+                        ArregloTemps temps = new ArregloTemps();
+                        temps.Ejecutar();
+                        break;
+                    default:
+                        Console.WriteLine("\n  Opción no válida. Ingrese un número del 0 al 5.\n");
+                        break;
+                }
+
+                if (continuar && opcion >= 1 && opcion <= 5)
                 {
                     Console.WriteLine("\n  Presione Enter para continuar...");
                     Console.ReadLine();
@@ -315,11 +397,14 @@ namespace poo_guia_1_abnerP
                     case 3:
                         programa.EjecutarBloque3();
                         break;
+                    case 4:
+                        programa.EjecutarBloque4();
+                        break;
                     case 0:
                         Console.WriteLine("\n  Programa terminado.");
                         break;
                     default:
-                        Console.WriteLine("\n  Opción no válida. Ingrese un número del 0 al 3.\n");
+                        Console.WriteLine("\n  Opción no válida. Ingrese un número del 0 al 4.\n");
                         break;
                 }
 
