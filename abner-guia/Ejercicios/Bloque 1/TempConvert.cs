@@ -180,44 +180,38 @@ namespace poo_guia_1_abnerP.Ejercicios.Bloque1
 
                     case 1:
                         double celsius = ObtenerTemperatura("  Ingrese la temperatura en Celsius: ");
-                        Temperatura tempC = new Temperatura(celsius, "°C");
                         double fahrenheit = CelsiusAFahrenheit(celsius);
-                        Console.WriteLine("\n  Resultado: " + tempC.GetValor() + " °C = " + fahrenheit + " °F");
+                        Console.WriteLine("\n  Resultado: " + celsius + " °C = " + fahrenheit + " °F");
                         break;
 
                     case 2:
                         double fahrInput = ObtenerTemperatura("  Ingrese la temperatura en Fahrenheit: ");
-                        Temperatura tempF = new Temperatura(fahrInput, "°F");
                         double celsiusResult = FahrenheitACelsius(fahrInput);
-                        Console.WriteLine("\n  Resultado: " + tempF.GetValor() + " °F = " + celsiusResult + " °C");
+                        Console.WriteLine("\n  Resultado: " + fahrInput + " °F = " + celsiusResult + " °C");
                         break;
 
                     case 3:
                         double celsiusKelvin = ObtenerTemperatura("  Ingrese la temperatura en Celsius: ");
-                        Temperatura tempCK = new Temperatura(celsiusKelvin, "°C");
                         double kelvin = CelsiusAKelvin(celsiusKelvin);
-                        Console.WriteLine("\n  Resultado: " + tempCK.GetValor() + " °C = " + kelvin + " K");
+                        Console.WriteLine("\n  Resultado: " + celsiusKelvin + " °C = " + kelvin + " K");
                         break;
 
                     case 4:
                         double kelvinInput = ObtenerTemperatura("  Ingrese la temperatura en Kelvin: ");
-                        Temperatura tempK = new Temperatura(kelvinInput, "K");
                         double celsiusFromKelvin = KelvinACelsius(kelvinInput);
-                        Console.WriteLine("\n  Resultado: " + tempK.GetValor() + " K = " + celsiusFromKelvin + " °C");
+                        Console.WriteLine("\n  Resultado: " + kelvinInput + " K = " + celsiusFromKelvin + " °C");
                         break;
 
                     case 5:
                         double fahrToKelvin = ObtenerTemperatura("  Ingrese la temperatura en Fahrenheit: ");
-                        Temperatura tempFK = new Temperatura(fahrToKelvin, "°F");
                         double kelvinFromFahr = FahrenheitAKelvin(fahrToKelvin);
-                        Console.WriteLine("\n  Resultado: " + tempFK.GetValor() + " °F = " + kelvinFromFahr + " K");
+                        Console.WriteLine("\n  Resultado: " + fahrToKelvin + " °F = " + kelvinFromFahr + " K");
                         break;
 
                     case 6:
                         double kelvinToFahr = ObtenerTemperatura("  Ingrese la temperatura en Kelvin: ");
-                        Temperatura tempKF = new Temperatura(kelvinToFahr, "K");
                         double fahrenheitFromKelvin = KelvinAFahrenheit(kelvinToFahr);
-                        Console.WriteLine("\n  Resultado: " + tempKF.GetValor() + " K = " + fahrenheitFromKelvin + " °F");
+                        Console.WriteLine("\n  Resultado: " + kelvinToFahr + " K = " + fahrenheitFromKelvin + " °F");
                         break;
 
                     default:

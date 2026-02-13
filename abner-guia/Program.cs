@@ -3,6 +3,7 @@ using poo_guia_1_abnerP.Ejercicios.Bloque1;
 using poo_guia_1_abnerP.Ejercicios.Bloque2;
 using poo_guia_1_abnerP.Ejercicios.Bloque3;
 using poo_guia_1_abnerP.Ejercicios.Bloque4;
+using poo_guia_1_abnerP.Ejercicios.Bloque5;
 
 namespace poo_guia_1_abnerP
 {
@@ -39,6 +40,7 @@ namespace poo_guia_1_abnerP
             Console.WriteLine("  2. Bloque 2");
             Console.WriteLine("  3. Bloque 3");
             Console.WriteLine("  4. Bloque 4");
+            Console.WriteLine("  5. Bloque 5");
             Console.WriteLine("  0. Salir");
             Console.Write("  Ingrese su opción: ");
         }
@@ -93,6 +95,16 @@ namespace poo_guia_1_abnerP
             Console.WriteLine("  3. Rotacion de Arreglo");
             Console.WriteLine("  4. Frecuencia de Elementos");
             Console.WriteLine("  5. Arreglo de Temperaturas");
+            Console.WriteLine("  0. Volver al menu principal");
+            Console.Write("  Ingrese su opción: ");
+        }
+
+        void MostrarMenuBloque5()
+        {
+            Console.WriteLine("\n      BLOQUE 5      ");
+            Console.WriteLine("  1. Matriz de Notas por Examen");
+            Console.WriteLine("  2. Juego Tic-Tac-Toe");
+            Console.WriteLine("  3. Inventario Simple");
             Console.WriteLine("  0. Volver al menu principal");
             Console.Write("  Ingrese su opción: ");
         }
@@ -376,6 +388,58 @@ namespace poo_guia_1_abnerP
             }
         }
 
+        void EjecutarBloque5()
+        {
+            int opcion;
+            bool continuar = true;
+
+            while (continuar)
+            {
+                MostrarMenuBloque5();
+
+                try
+                {
+                    opcion = int.Parse(Console.ReadLine());
+                }
+                catch
+                {
+                    opcion = -1;
+                }
+
+                switch (opcion)
+                {
+                    case 0:
+                        Console.WriteLine("\n  Volviendo al menu principal...");
+                        continuar = false;
+                        break;
+                    case 1:
+                        Console.WriteLine("\n  --- MATRIZ DE NOTAS POR EXAMEN ---");
+                        MatrizNParcial matriz = new MatrizNParcial();
+                        matriz.Ejecutar();
+                        break;
+                    case 2:
+                        Console.WriteLine("\n  --- JUEGO TIC-TAC-TOE ---");
+                        TicTacToe juego = new TicTacToe();
+                        juego.Ejecutar();
+                        break;
+                    case 3:
+                        Console.WriteLine("\n  --- INVENTARIO SIMPLE ---");
+                        InventSimple inventario = new InventSimple();
+                        inventario.Ejecutar();
+                        break;
+                    default:
+                        Console.WriteLine("\n  Opción no válida. Ingrese un número del 0 al 3.\n");
+                        break;
+                }
+
+                if (continuar && opcion >= 1 && opcion <= 3)
+                {
+                    Console.WriteLine("\n  Presione Enter para continuar...");
+                    Console.ReadLine();
+                }
+            }
+        }
+
         static void Main(string[] args)
         {
             Program programa = new Program();
@@ -400,11 +464,14 @@ namespace poo_guia_1_abnerP
                     case 4:
                         programa.EjecutarBloque4();
                         break;
+                    case 5:
+                        programa.EjecutarBloque5();
+                        break;
                     case 0:
                         Console.WriteLine("\n  Programa terminado.");
                         break;
                     default:
-                        Console.WriteLine("\n  Opción no válida. Ingrese un número del 0 al 4.\n");
+                        Console.WriteLine("\n  Opción no válida. Ingrese un número del 0 al 5.\n");
                         break;
                 }
 

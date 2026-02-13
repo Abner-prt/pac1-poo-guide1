@@ -8,11 +8,11 @@ namespace poo_guia_1_abnerP.Ejercicios.Bloque3
             string password;
             bool valido = false;
 
-            // bucle que se repite hasta que la contrasena sea valida
+            // bucle que se repite hasta que la contraseña sea valida
             do
             {
-                // mostra mensaje y lee contrasena
-                Console.Write("Ingrese una contrasena: ");
+                // mostra mensaje y lee contraseña
+                Console.Write("Ingrese una contraseña: ");
                 password = Console.ReadLine();
 
                 // llama al metodo que verifica los requisitos
@@ -21,15 +21,15 @@ namespace poo_guia_1_abnerP.Ejercicios.Bloque3
                 // verifica si hay requisitos faltantes
                 if (requisitosFalts.Count == 0)
                 {
-                    // Contrasena valida - mostrar exito
-                    Console.WriteLine("\n¡Contrasena valida!");
-                    Console.WriteLine("Tu contrasena cumple con todos los requisitos de seguridad.");
+                    // Contraseña valida - mostrar exito
+                    Console.WriteLine("\nContraseña valida!");
+                    Console.WriteLine("Tu contraseña cumple con todos los requisitos de seguridad.");
                     valido = true;  // cambiar a true para salir del bucle
                 }
                 else
                 {
                     // jay requisitos faltantes - mostrarlos
-                    Console.WriteLine("\nLa contrasena no cumple con los siguientes requisitos:");
+                    Console.WriteLine("\nLa contraseña no cumple con los siguientes requisitos:");
                     
                     // usea foreach para mostrar cada requisito faltante
                     foreach (string requisito in requisitosFalts)
@@ -142,7 +142,7 @@ namespace poo_guia_1_abnerP.Ejercicios.Bloque3
         public void Ejecutar()
         {
             // mostrar titulo del programa
-            Console.WriteLine("\n VALIDACION DE CONTRASENA ");
+            Console.WriteLine("\n VALIDACION DE CONTRASEÑA ");
             
             // mostrar lista de requisitos para el usuario
             Console.WriteLine("Requisitos:");
